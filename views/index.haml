@@ -1,1 +1,13 @@
-%p Hello Thar
+%p Hello #{current_user.username}
+
+%h2 Your Devices
+- if current_user.devices
+  %ul
+    - current_user.devices.each do |device|
+      %li= device.name
+- else
+  %p You don't have any devices registered.
+%p
+  %a{:href => '/devices/add'}Add a Device
+%p
+  %a{:href => '/logout'} Logout

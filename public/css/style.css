@@ -2,3 +2,13 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial Geneva, sans-serif;
   font-size: 18px;
 }
+
+#soundcloud_login {
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  padding-top: 31px;
+  height: 0;
+  width: 207px;
+  background: url('/images/btn-connect-sc-m.png');
+}
