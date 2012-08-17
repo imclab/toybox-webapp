@@ -21,6 +21,7 @@ GEM
       data_objects (= 0.10.8)
     do_sqlite3 (0.10.8)
       data_objects (= 0.10.8)
+    haml (3.1.6)
     hashie (1.2.0)
     httmultiparty (0.3.8)
       httparty (>= 0.7.3)
@@ -54,6 +55,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-sqlite-adapter
+  haml
   json
   pg
   sinatra

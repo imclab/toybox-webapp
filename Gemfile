@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'sinatra'
 gem 'soundcloud'
 gem 'json'
+gem 'haml'
 
 gem 'dm-core'
 gem 'dm-migrations'
