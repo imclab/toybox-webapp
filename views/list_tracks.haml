@@ -1,0 +1,11 @@
+%h2 Events
+
+- if device.tracks
+  %ul
+    - device.tracks.each do |track|
+      %li #{track.event} - #{track.url}
+
+%p
+  %a{:href => "/tracks/#{device.id}/add"} Add a Track
+
+  

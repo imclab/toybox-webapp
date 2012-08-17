@@ -45,7 +45,7 @@ get '/' do
 end
 
 get '/login' do
-  haml :login, :locals => {:authorize_url => soundcloud_client.authorize_url()}
+  haml :login
 end
 
 get '/logout' do
@@ -65,11 +65,38 @@ get '/callback' do
 end
 
 get '/devices/add' do
-  'Yup, not implemented yet'
+  haml :add_device
 end
 
-get '/tracks/:device' do
+post '/devices/add' do
+  device = params[:device]
+  Device.create(:user => current_user, :name => device['name'], :id => device['id'])
+  redirect '/'
+end
+
+post '/tracks/:device' do
+  device = Device.find(params[:device])
+  Track.create(:device => device, :url => track[:url])
+  redirect '/'
+end
+
+get '/tracks/:device.json' do
   device = Device.get(params[:device])
   pass if device.nil?
   tracks_for(device)
+end
+
+get '/tracks/:device' do
+  haml :list_tracks, :locals => {:device => Device.get(params[:device])}
+end
+
+get '/tracks/:device/add' do
+  haml :add_track, :locals => {:device => Device.get(params[:device])}
+end
+
+post '/tracks/:device/add' do
+  device = Device.get(params[:device])
+  track = params[:track]
+  Track.create(:device => device, :event => track['event'], :url => track['url'])
+  redirect '/'
 end

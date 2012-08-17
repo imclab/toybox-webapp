@@ -1,0 +1,11 @@
+%form{:action => "/tracks/#{device.id}/add", :method => "POST"}
+  %p
+    %label{:for => "event"} Event
+    %select{:name => "track[event]", :id => "event"}
+      %option{:value => "button1"}button1
+      %option{:value => "button2"}button2
+  %p
+    %label{:for => "url"} URL
+    %input{:type => 'text', :name => 'track[url]', :id => 'url'}
+  %p
+    %input{:type => 'submit', :value => 'Create'}

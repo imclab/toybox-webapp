@@ -4,7 +4,8 @@
 - if current_user.devices
   %ul
     - current_user.devices.each do |device|
-      %li= device.name
+      %li
+        %a{:href => "/tracks/#{device.id}"}= device.name
 - else
   %p You don't have any devices registered.
 %p
