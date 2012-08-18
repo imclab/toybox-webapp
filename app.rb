@@ -40,6 +40,18 @@ def tracks_for(device)
   device.tracks.collect {|x| {:url => x.url, :event => x.event }}.to_json
 end
 
+# fetch stream_url given a permalink_url
+def resolve_track(track)
+  client = soundcloud_client()
+  begin
+    track = client.get('/resolve', { :url => track }, :follow_redirects => false)
+  rescue Soundcloud::ResponseError => e
+    location = e.response['location']
+    track = client.get(location)
+  end
+  track.stream_url
+end
+
 get '/' do
   if current_user
     haml :index
@@ -101,6 +113,8 @@ end
 post '/tracks/:device/add' do
   device = Device.get(params[:device])
   track = params[:track]
-  Track.create(:device => device, :event => track['event'], :url => track['url'])
+  track_url = resolve_track(track['url'])
+  track_url = "#{track_url}?client_id=#{ENV['SOUNDCLOUD_CLIENT_ID']}"
+  Track.create(:device => device, :event => track['event'], :url => track_url)
   redirect '/'
 end
