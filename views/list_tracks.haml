@@ -1,11 +1,11 @@
-%h2 Events
+%p Add sounds to your toy so that when your child pushes a button or moves the device, or speaks to it, they will be surprised with a fun sound!
 
 - if device.tracks
+  %h3 Sounds
   %ul
     - device.tracks.each do |track|
       %li #{track.event} - #{track.url}
-
+- else
+  %p Your toy, #{device.name}, has no sounds associated with it. You should <a href="/tracks/#{device.id}/add">add some</a>!
 %p
-  %a{:href => "/tracks/#{device.id}/add"} Add a Track
-
-  
+  %a{:href => "/tracks/#{device.id}/add"} Add a Sound

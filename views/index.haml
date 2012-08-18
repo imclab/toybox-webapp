@@ -1,16 +1,14 @@
 %p Hello #{current_user.username}
 
-%p You have registered #{current_user.devices.length} device(s).
+%p Welcome to ToyBox. May your children never know loneliness again.
 
-%h2 Your Devices
 - if current_user.devices
+  %p You have registered #{current_user.devices.length} toy(s).
+  %h3 Your Toys
   %ul
     - current_user.devices.each do |device|
       %li
         %a{:href => "/tracks/#{device.id}"}= device.name
+  %a{:href => '/devices/add'}Add a Toy
 - else
-  %p You don't have any devices registered.
-%p
-  %a{:href => '/devices/add'}Add a Device
-%p
-  %a{:href => '/logout'} Logout
+  %p To get started, <a href="/devices/add">add a Toy</a>.

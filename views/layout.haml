@@ -6,7 +6,11 @@
     %script{:src => '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'}
   %body
     %div#main
-      %h1.logo ToyBox
+      %h1.logo
+        %a{:href => '/'} ToyBox
       = yield
+      - if current_user
+        %p#logout
+          %a{:href => '/logout'} Logout
     %script{:src => '/js/script.js'}
 

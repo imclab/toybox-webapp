@@ -8,6 +8,11 @@ h1.logo {
   margin-top: 60px;
 }
 
+h1.logo a {
+  text-decoration: none;
+  color: #000;
+}
+
 #main {
   margin: 0 auto;
   width: 680px;
@@ -27,8 +32,9 @@ h1.logo {
   background: url('/images/btn-connect-sc-m.png') no-repeat;
 }
 
-
-
+#logout {
+  margin-top: 50px;
+}
 
 /* Start Basic Button Setup */
 
@@ -73,6 +79,57 @@ button.big {
   font-weight: 100;
   padding: 5px 10px;
 }
+input.big-save {
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+  margin: 0;
+  padding: 0 10px !important;
+  border: 1px #cccccc solid;
+  font-size: 12px !important;
+  line-height: 19px !important;
+  height: 19px;
+  color: #333333 !important;
+  cursor: pointer;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  text-align: center;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -o-border-radius: 1em;
+  -ms-border-radius: 1em;
+  border-radius: 1em;
+  background-color: #e5e5e5;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e5e5e5));
+  background-image: -webkit-linear-gradient(top, white, #e5e5e5);
+  background-image: -moz-linear-gradient(top, white, #e5e5e5);
+  background-image: -ms-linear-gradient(top, white, #e5e5e5);
+  background-image: -o-linear-gradient(top, white, #e5e5e5);
+  background-image: linear-gradient(top, white, #e5e5e5);
+  filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='white', endColorstr='#e5e5e5');
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  -ms-background-clip: padding-box;
+  -webkit-transition: border-color 0.2s linear, background-color 0.2s linear, color 0.1s linear, -webkit-box-shadow 0.3s linear, opacity 0.3s linear;
+  -moz-transition: border-color 0.2s linear, background-color 0.2s linear, color 0.1s linear, -moz-box-shadow 0.3s linear, opacity 0.3s linear;
+  -o-transition: border-color 0.2s linear, background-color 0.2s linear, color 0.1s linear, box-shadow 0.3s linear, opacity 0.3s linear;
+  transition: border-color 0.2s linear, background-color 0.2s linear, color 0.1s linear, box-shadow 0.3s linear, opacity 0.3s linear;
+  user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  zoom: 1;
+  *display: inline;
+}
+
+.form-buttons-big input {
+    float: right;
+    font-size: 21px !important;
+    line-height: 38px !important;
+    height: 38px;
+    padding: 0 30px !important;
+    margin: 0;
+}
 
 .big.submit{
   width: 115px;
@@ -85,3 +142,53 @@ button:hover {
   border-left: 1px solid rgba(0,0,0,0.13);
   background-color: rgba(243,243,243,1);
 }
+
+/* forms */
+
+input, textarea, select {
+  display: block;
+  font-family: "Lucida Grande", Arial, Helvetica, Verdana, sans-serif;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #333;
+  border: 1px solid;
+  border-color: #CCC;
+  font-size: 12px;
+  padding: 3px 0px 3px 3px;
+  margin: 0 0 0.3em 0;
+  -moz-border-radius-bottomright: 7px;
+  -moz-border-radius-topleft: 7px;
+  border-bottom-right-radius: 7px;
+  border-top-left-radius: 7px;
+  -webkit-border-bottom-right-radius: 7px;
+  -webkit-border-top-left-radius: 7px;
+}
+
+label {
+  margin-bottom: 2px;
+  display: block;
+  color: #333;
+}
+
+input[type="text"] {
+  width: 100%;
+  background-color: #F8F8F8;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#EEE), to(#F8F8F8)) repeat-x, #F8F8F8;
+  -moz-background-size: 100% 4px;
+  -webkit-background-size: 100% 4px;
+  background-size: 100% 4px;
+  zoom: 1;
+}
+
+select {
+  padding: 2px 6px 2px 6px;
+  background-color: #f8f8f8;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), to(#f8f8f8)) repeat-x, #f8f8f8;
+  background: -moz-linear-gradient(90deg, #f8f8f8, #eeeeee) repeat-x scroll 0 0 #f8f8f8;
+  -moz-background-size: 100% 4px;
+  -webkit-background-size: 100% 4px;
+  background-size: 100% 4px;
+  zoom: 1;
+}
+

@@ -1,9 +1,9 @@
 %form{:action => '/devices/add', :method => 'POST'}
   %p
-    %label{:for => 'name'} Descriptive Name
+    %label{:for => 'name'} Give your toy a descriptive name
     %input{:type => 'text', :name => 'device[name]', :id => 'name'}
   %p
-    %label{:for => 'address'} Mac Address
+    %label{:for => 'address'} Please enter your toy's Mac Address
     %input{:type => 'text', :name => 'device[id]', :id => 'address'}
   %p
     %input{:type => 'submit', :value => 'Create'}

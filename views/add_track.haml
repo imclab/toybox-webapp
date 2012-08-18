@@ -1,11 +1,14 @@
 %form{:action => "/tracks/#{device.id}/add", :method => "POST"}
   %p
-    %label{:for => "event"} Event
+    %label{:for => "event"} When your child...
     %select{:name => "track[event]", :id => "event"}
-      %option{:value => "button1"}button1
-      %option{:value => "button2"}button2
+      %option{:value => "button1"}Clicks Button 1
+      %option{:value => "button2"}Clicks Button 2
+      %option{:value => "microphone"}Speaks to the toy
+      %option{:value => "accelerometer"}Moves the toy
+      %option{:value => "gyro"}Rotates the toy
   %p
-    %label{:for => "url"} URL
+    %label{:for => "url"} Play this sound. (copy & paste URL from SoundCloud)
     %input{:type => 'text', :name => 'track[url]', :id => 'url'}
-  %p
-    %input{:type => 'submit', :value => 'Create'}
+  %div.form-buttons-big
+    %input{:type => 'submit', :value => 'Create', :class => 'big-save'}
