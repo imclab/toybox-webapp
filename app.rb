@@ -27,7 +27,11 @@ end
 
 def soundcloud_user(id, access_token, username)
   user = User.get(id)
-  return user unless user.nil?
+  unless user.nil?
+    user.access_token = access_token
+    user.save
+    return user
+  end
   User.create(:id => id, :access_token => access_token, :username => username)
 end
 
