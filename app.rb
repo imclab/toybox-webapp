@@ -10,6 +10,18 @@ set :haml, :format => :html5
 enable :sessions
 
 helpers do
+
+  def events
+    {
+      'button1' => 'Clicks Button 1',
+      'button2' => 'Clicks Button 2',
+      'button3' => 'Clicks Button 3',
+      'microphone' => 'Speaks to the toy',
+      'accelerometer' => 'Moves the toy',
+      'gyro' => 'Rotates the toy'
+    }
+  end
+
   def current_user
     @current_user ||= User.get(session[:user_id]) if session[:user_id]
   end
@@ -40,7 +52,7 @@ def tracks_for(device)
   device.tracks.collect {|x| {:url => x.url, :event => x.event }}.to_json
 end
 
-# fetch stream_url given a permalink_url
+# fetch track resource given a permalink_url
 def resolve_track(track)
   client = soundcloud_client()
   begin
@@ -49,7 +61,7 @@ def resolve_track(track)
     location = e.response['location']
     track = client.get(location)
   end
-  track.stream_url
+  track
 end
 
 get '/' do
@@ -113,8 +125,8 @@ end
 post '/tracks/:device/add' do
   device = Device.get(params[:device])
   track = params[:track]
-  track_url = resolve_track(track['url'])
-  track_url = "#{track_url}?client_id=#{ENV['SOUNDCLOUD_CLIENT_ID']}"
-  Track.create(:device => device, :event => track['event'], :url => track_url)
+  resource = resolve_track(track['url'])
+  track_url = "#{resource.stream_url}?client_id=#{ENV['SOUNDCLOUD_CLIENT_ID']}"
+  Track.create(:device => device, :event => track['event'], :url => track_url, :title => resource.title)
   redirect '/'
 end

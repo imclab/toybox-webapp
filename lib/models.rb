@@ -18,6 +18,7 @@ class Track
   belongs_to :device
 
   property :id,    Serial
+  property :title, String
   property :event, String, :required => true
   property :url,   String, :length => 100
 end

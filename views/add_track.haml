@@ -2,11 +2,8 @@
   %p
     %label{:for => "event"} When your child...
     %select{:name => "track[event]", :id => "event"}
-      %option{:value => "button1"}Clicks Button 1
-      %option{:value => "button2"}Clicks Button 2
-      %option{:value => "microphone"}Speaks to the toy
-      %option{:value => "accelerometer"}Moves the toy
-      %option{:value => "gyro"}Rotates the toy
+      - events.each do |key, value|
+        %option{:value => key} #{value}
   %p
     %label{:for => "url"} Play this sound. (copy & paste URL from SoundCloud)
     %input{:type => 'text', :name => 'track[url]', :id => 'url'}
