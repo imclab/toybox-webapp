@@ -1,5 +1,7 @@
 %p Hello #{current_user.username}
 
+%p You have registered #{current_user.devices.length} device(s).
+
 %h2 Your Devices
 - if current_user.devices
   %ul
