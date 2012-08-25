@@ -1,4 +1,3 @@
-toybox-webapp
--------------
+# toybox-webapp
 
-A webapp for configuring [toybox](https://github.com/soundcloud/toybox).
+A webapp for configuring [ToyBox](https://github.com/soundcloud/toybox).
